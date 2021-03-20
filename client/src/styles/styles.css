@@ -1,4 +1,12 @@
 html {
-    background-color: rgb(93, 93, 133);
+    background-color: #7395AE;
   }
   
+  table {
+    border-collapse: collapse;
+    
+  }
+
+  td, th{
+    border: 1px solid #5D5C61;
+  }
