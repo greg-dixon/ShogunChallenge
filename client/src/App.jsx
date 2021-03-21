@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from "react";
+import axios from 'axios'
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("")
   const [csvArray, setCsvArray] = useState([])
 
-  // useEffect(() => {
-  //   console.log(searchTerm)
-  //   // fetch('../../addresses.csv')
-  //   // .then(data => )
-  //   // return () => {
-  //   // }
-  // }, [])
+  useEffect(() => {
+  axios.get('/api/retrieveCSV')
+      .then(data => console.log(data))
+    // fetch('../../addresses.csv')
+    // .then(data => )
+    // return () => {
+    // }
+  }, [])
 
   const searchResults = []
 

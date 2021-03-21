@@ -7,7 +7,9 @@ const csvController = require('./controllers/csvController')
 const { PORT } = process.env;
 const app = express();
 
-// app.use('/api/retrieveCSV', )
+app.use('/api/retrieveCSV', csvController.retrieve, (req, res) => {
+  res.status(200).send(res.locals.homeData)
+})
 
 app.use('/dist', express.static(path.join(__dirname, '../dist')));
 
