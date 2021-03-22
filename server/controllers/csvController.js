@@ -4,8 +4,14 @@ const path = require('path')
 
 const csvController = {}
 
+/*
+My csv controller asyncronously parses the csv file and prepares it to be
+sent to the frontend.
+*/
+
+
 csvController.retrieve = async (req, res, next) => {
-    res.locals.homeData = []
+  res.locals.homeData = []
 
   await fs.createReadStream(path.join(__dirname, '../../client/public/addresses.csv'))
     .pipe(csv())

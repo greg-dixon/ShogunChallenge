@@ -1,3 +1,8 @@
+/*
+This function extracts the relevant information from the parsed CSV file,
+making it much easier to work with and keeping the keys short and readable.
+*/
+
 const  parseListings = (array) => {
 const results = []
 
