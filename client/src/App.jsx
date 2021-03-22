@@ -7,6 +7,7 @@ import headingTerms from "../constants/headingTerms"
 function App() {
   const [searchTerm, setSearchTerm] = useState("")
   const [homeArray, setHomeArray] = useState([])
+  const [startIndex, setStartIndex] = useState(0)
 
   useEffect(() => {
   axios.get('/api/retrieveCSV')
@@ -16,7 +17,7 @@ function App() {
 
   const searchResults = []
   const headings = []
-  const filters = []
+  const buttons =[]
 
   
   // const filterTerms = ["maxPrice", "minPrice"]
@@ -27,35 +28,51 @@ function App() {
       headings.push(<th key={el}>{el}</th>)
   })
 
-  // filterTerms
-  //   .forEach(el => {
-  //     filters.push()
-  //   })
-
- homeArray
+ const filtered = homeArray
     .filter(el => 
       el.address.toLowerCase().includes(searchTerm.toLowerCase()) ||  
       el.zip.includes(searchTerm)
   )
+  filtered.slice(startIndex, startIndex+19)
     .forEach((el, index) => {
-      searchResults.push(<SearchResult key={el.url+index} listing={el}/>)
+      searchResults.push(
+      <SearchResult key={el.url+index} listing={el}/>)
   })
+
+  if(startIndex>0) {
+    buttons.push(
+      <button key="prev"
+      onClick={e =>{setStartIndex(startIndex-20)
+      }}>Previous</button>
+    )
+  }
+  if (startIndex+19<filtered.length){
+    buttons.push(
+    <button key="next" 
+      onClick={e =>{setStartIndex(startIndex+20)
+    }}>Next</button>)
+  }
 
   return (
     <div>
       <h1>Address Search</h1>
-    <input type="text" placeholder="Search by address or zip code" onChange={e => setSearchTerm(e.target.value)} id="searchBar" ></input>
+    <input type="text" placeholder="Search by address or zip code" 
+    onChange={e => {setSearchTerm(e.target.value)
+      setStartIndex(0)
+    }} id="searchBar" ></input>
       <br></br>
-    <table>
-      <thead>
-        <tr>
-          {headings}
-        </tr>
-      </thead>
-      <tbody>
-          {searchResults}
-      </tbody>
-    </table>
+    
+       <table>
+        <thead>
+          <tr>
+            {headings}
+          </tr>
+        </thead>
+        <tbody>
+            {searchResults}
+        </tbody>
+      </table>
+        {buttons}
     </div>
   );
 }

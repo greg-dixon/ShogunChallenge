@@ -10,9 +10,9 @@ const SearchResult = (props) => {
         let display
         if (key === "url") return
         key==="price" || key==="priceSqFt" ? display = `$${value}` : display = value
-        if(!value || value==="") display = "-"
+        if (!value || value==="") display = "-"
 
-        cells.push(<td key={key+index}><a href={listing.url}>{display}</a></td>)
+        cells.push(<td key={+index}><a href={listing.url}>{display}</a></td>)
     })
 
     return (
