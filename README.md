@@ -6,7 +6,7 @@ To run this application, do the following in the CLI:
 2. npm start to spin up the server
 3. in another terminal, npm run dev to run the application
 
-It should appear on your broswer on localhost:8080. I also wrote a few tests
+It should appear on your broswer on localhost:8080. I also wrote a few tests;
 you can run them with npm test.
 
 I left psuedocode throughout to explain my though process and code.
