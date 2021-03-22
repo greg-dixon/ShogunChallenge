@@ -7,12 +7,19 @@ const SearchResult = (props) => {
 
     Object.entries(listing).forEach((el, index) =>  {
         const [key, value] = el
-        let display
         if (key === "url") return
-        key==="price" || key==="priceSqFt" ? display = `$${value}` : display = value
-        if (!value || value==="") display = "-"
 
-        cells.push(<td key={+index}><a href={listing.url}>{display}</a></td>)
+        let display
+
+        key==="price" || key==="priceSqFt" 
+        ? display = `$${value}`
+        : display = value
+
+        if (!value || value==="") display = "-"
+        
+        key==="address"
+        ? cells.push(<td key={+index}><a href={listing.url}>{display}</a></td>)
+        : cells.push(<td key={+index}>{display}</td>)
     })
 
     return (

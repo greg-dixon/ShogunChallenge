@@ -1,20 +1,52 @@
 html {
-    background-color: #7395AE;
+    background-color: #BADBF2;
+    font-family: 'Roboto', sans-serif;
+    color: #001C55;
   }
 
-  a, a:hover, a:focus, a:active, a:visited{
+  a, a:focus, a:active, a:visited{
     color: inherit;
     text-decoration: none;
   }
 
+  a:hover {
+    color: #D65108;
+  }
+
+  input {
+   background-color: #F8FBEF;
+   padding: 5px;
+  }
+
   table, th, td {
-    border: 1px solid #5D5C61;
+    border: 1px solid #001C55;
+    background-color: #F8FBEF;
     border-collapse: collapse;
     text-align: center;
-    padding: 15px;
+    padding: 14px;
   }
+
   table{
     width: 80%;
+    margin-bottom: 15px;
+  }
+
+  h1 {
+
+  }
+
+  button, input {
+    background-color: #F8FBEF;
+    padding: 7px;
+    border-radius: 10px;
+    border: 1px solid #001C55;
+    outline: none;
+  box-shadow: none;
+  color: #001C55;
+  }
+
+  th, button:hover {
+    background-color:  #E3EFBD;
   }
 
   #searchBar {

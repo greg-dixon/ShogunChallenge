@@ -1,4 +1,4 @@
-const parseListings = (array) => {
+const  parseListings = (array) => {
 const results = []
 
 array.forEach(el => {
@@ -17,5 +17,4 @@ array.forEach(el => {
 
     return results
 }
-
 export default parseListings
