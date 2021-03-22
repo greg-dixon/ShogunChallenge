@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios'
 import SearchResult from "./components/SearchResult";
 import parseListings from "../functions/parseListings"
+import headingTerms from "../constants/headingTerms"
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("")
@@ -15,12 +16,21 @@ function App() {
 
   const searchResults = []
   const headings = []
+  const filters = []
 
-  const terms = ["Address", "Zip Code", "Beds", "Baths", "Price"]
+  
+  // const filterTerms = ["maxPrice", "minPrice"]
+  // const priceOptions = ["-", "$50k", "$100k", "$250k", "$500k", "$750k", "$1M"]
 
-  terms.forEach(el => {
-    headings.push(<th key={el}>{el}</th>)
+  headingTerms
+    .forEach(el => {
+      headings.push(<th key={el}>{el}</th>)
   })
+
+  // filterTerms
+  //   .forEach(el => {
+  //     filters.push()
+  //   })
 
  homeArray
     .filter(el => 
@@ -28,13 +38,13 @@ function App() {
       el.zip.includes(searchTerm)
   )
     .forEach((el, index) => {
-    searchResults.push(<SearchResult key={el.url+index} listing={el}/>)
+      searchResults.push(<SearchResult key={el.url+index} listing={el}/>)
   })
 
   return (
     <div>
       <h1>Address Search</h1>
-    <input type="text" placeholder="Search by address or zip code" onChange={e => setSearchTerm(e.target.value)} ></input>
+    <input type="text" placeholder="Search by address or zip code" onChange={e => setSearchTerm(e.target.value)} id="searchBar" ></input>
       <br></br>
     <table>
       <thead>
@@ -43,7 +53,7 @@ function App() {
         </tr>
       </thead>
       <tbody>
-        {searchResults}
+          {searchResults}
       </tbody>
     </table>
     </div>

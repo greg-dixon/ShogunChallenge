@@ -13,7 +13,11 @@ html {
     text-align: center;
     padding: 15px;
   }
+  table{
+    width: 80%;
+  }
 
-  /* td, th{
-    border: 1px solid #5D5C61;
-  } */
+  #searchBar {
+    width: 70%;
+    margin: 15px;
+  }
