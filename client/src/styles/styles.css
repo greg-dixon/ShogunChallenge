@@ -1,12 +1,19 @@
 html {
     background-color: #7395AE;
   }
-  
-  table {
-    border-collapse: collapse;
-    
+
+  a, a:hover, a:focus, a:active, a:visited{
+    color: inherit;
+    text-decoration: none;
   }
 
-  td, th{
+  table, th, td {
     border: 1px solid #5D5C61;
+    border-collapse: collapse;
+    text-align: center;
+    padding: 15px;
   }
+
+  /* td, th{
+    border: 1px solid #5D5C61;
+  } */
