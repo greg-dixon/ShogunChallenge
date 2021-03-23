@@ -1,6 +1,6 @@
 # ShogunChallenge
 
-To run this application, do the following in the CLI:
+To run this application, follow these steps in the CLI:
 
 1. npm i to download all the goodies
 2. npm start to spin up the server
